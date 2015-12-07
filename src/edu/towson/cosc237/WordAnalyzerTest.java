@@ -13,13 +13,18 @@ public class WordAnalyzerTest
 {
    public static void main(String[] args)
    {
-      test("aardvark"); // expect: a
-      test("roommate"); // expect: o (not m)
-      test("mate"); // expect: 0 (no duplicate letters)
-      test("test"); // expect: 0 (the t isn't repeating)
+      testFirstRepeatedCharacter("aardvark"); // expect: a
+      testFirstRepeatedCharacter("roommate"); // expect: o (not m)
+      testFirstRepeatedCharacter("mate"); // expect: 0 (no duplicate letters)
+      testFirstRepeatedCharacter("test"); // expect: 0 (the t isn't repeating)
+      
+      /* Uncomment the following lines when prompted in lab. */
+      //testCountRepeatedCharacters("mississippiii"); // expect: 4 (ss, ss, pp, iii)
+      //testCountRepeatedCharacters("test"); // expect: 0 (no repeated letters)
+      //testCountRepeatedCharacters("aabbcdaaaabb"); // expect: 4 (aa, bb, aaaa, bb)
    }
 
-   public static void test(String s)
+   public static void testFirstRepeatedCharacter(String s)
    {
       WordAnalyzer wa = new WordAnalyzer(s);
       char result = wa.firstRepeatedCharacter();
@@ -28,4 +33,13 @@ public class WordAnalyzerTest
       else
          System.out.println("First repeated character = " + result);
    }
+
+
+   public static void testCountRepeatedCharacters(String s)
+   {
+      WordAnalyzer wa = new WordAnalyzer(s);
+      int result = wa.countRepeatedCharacters();
+      System.out.println(result + " repeated characters.");
+   }
+
 }
